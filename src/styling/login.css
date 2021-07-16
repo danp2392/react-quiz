@@ -1,0 +1,26 @@
+
+#login-div {
+  
+  text-align: center;
+  font-size: 2rem;
+padding-bottom: 10px;
+}
+#login-button {
+  font-size: 2rem;
+margin-top: 50px;
+  font-weight: 500;
+  border-radius: 30px;
+  color: #fffffe;
+  background-color: #8B9FA7;
+  padding: 10px 40px;
+
+
+}
+#login-button:hover{
+    background-color: #ABCFDE;
+}
+
+#sub-heading{
+    font-size: 1.5rem;
+    margin-top: 20px;
+}

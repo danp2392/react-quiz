@@ -1,14 +1,17 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+
 /node_modules
 /.pnp
 .pnp.js
+/src/misc
+/src/config.js
+/src/testing
+/.env
+/package-lock.json
 
-# testing
 /coverage
 
-# production
 /build
 
 # misc
