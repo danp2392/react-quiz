@@ -11,9 +11,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-
-  background-color: #b6cad2;
-  /* fallback for old browsers */
+  background: #eee;
 }
 .container {
   background-color: cornsilk;
@@ -23,27 +21,7 @@ body {
   border: 5px outset #abcfde;
   width: 800px;
   max-width: 80%;
-  border-radius: 10px;
-}
-
-#logout-button {
-  display: flex;
-  justify-content: center;
-}
-
-.topnav {
-  text-align: center;
-}
-.score-div {
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-.nav-link {
-  color: black;
-  font-weight: 900;
-  font-size: 1.25rem;
-  padding: 40px;
+  border-radius: 0.16rem;
 }
 
 #loading-div {

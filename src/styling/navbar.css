@@ -1,7 +1,11 @@
-.nav-link{
-    color: black;
-    font-weight: 900;
-    font-size: 1.25rem;
-    padding: 40px;
-    
-    }
+.nav-link {
+  color: black;
+  font-weight: 900;
+  font-size: 1.25rem;
+  padding: 40px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.topnav {
+  text-align: center;
+}

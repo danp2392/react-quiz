@@ -3,14 +3,8 @@ import { Route } from "react-router-dom";
 import { Redirect } from "react-router";
 import { useAuth } from "../auth/auth";
 
-
 export const PrivateRoute = ({ component: Component, ...rest }) => {
-  //const [authenticated, setAuthenticated] = useState(false);
-
-  const { currentUser} = useAuth();
-
-  console.log(currentUser);
- // console.log(isAuthenticated);
+  const { currentUser } = useAuth();
 
   return (
     <>
@@ -19,9 +13,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
         render={(props) =>
           currentUser ? (
             <div>
-              
               <Component {...props} />
-            
             </div>
           ) : (
             <Redirect to="/" />

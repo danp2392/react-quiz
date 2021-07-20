@@ -1,25 +1,17 @@
-
 .container {
-
   font-size: 1.25rem;
   font-weight: 900;
 }
 #question-div {
   text-align: center;
-
+  text-transform: uppercase;
   padding: 20px;
 }
 #answer-div {
- 
   text-align: center;
   margin: 0;
   padding: 5px;
 }
-#answer-div:hover{
-  background-color: #8B9FA7;
+#answer-div:hover {
+  background-color: #8b9fa7;
 }
-
-#logout-button {
-  padding: 20px;
-}
-

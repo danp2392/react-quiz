@@ -1,7 +1,6 @@
 import { firebase, googleProvider } from "./firebase";
 import { createContext, useContext, useEffect, useState } from "react";
 
-//create createContext
 const AuthContext = createContext();
 
 export function useAuth() {
@@ -27,10 +26,6 @@ export function AuthProvider({ children }) {
       });
   }
 
-  //call on auth state chnaged (user)
-  //set Current user (user)
-  //return the auth state changed func
-
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -38,8 +33,6 @@ export function AuthProvider({ children }) {
       }
 
       setIsAuthenticating(false);
-      console.log("logged in");
-      console.log(currentUser);
     });
 
     return unsubscribe;
@@ -52,9 +45,7 @@ export function AuthProvider({ children }) {
     startLogin,
     logOut,
   };
-  //return
-  //auth context.provider, pass in the values
-  //then return the children .functions
+
   return (
     <AuthContext.Provider value={value}>
       {!isAuthenticating && children}

@@ -2,18 +2,15 @@ import React, { useEffect, useState } from "react";
 import { db } from "../auth/firebase";
 import { useAuth } from "../auth/auth";
 import "../App.css";
-import "../styling/scores.css";
+import "../styling/HighScores.css";
 import { Navbar } from "./Navbar";
 
 export const HighScores = () => {
-  const [getUserScores, setUserScores] = useState([]);
+  const [getUserData, setUserData] = useState([]);
   //nned to get user
   //need tp get scoes from database
   const { currentUser } = useAuth();
 
-  //ref=db.collection("scores")
-
-  //ref.where("name"==currentUser)
   function getData() {
     try {
       db.collection("scores")
@@ -22,13 +19,13 @@ export const HighScores = () => {
         .limit(10)
         .get()
         .then((snapshot) => {
-          const scores = [];
+          const userScoreData = [];
           snapshot.docs.forEach((doc) => {
             const data = doc.data();
-            scores.push(data);
+            userScoreData.push(data);
           });
 
-          setUserScores(scores);
+          setUserData(userScoreData);
         });
     } catch (e) {
       console.log(e);
@@ -37,26 +34,26 @@ export const HighScores = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   return (
     <>
       <Navbar />
-      <div class="container">
-        <div className="scores-div">
+      <div className="container">
+        <div id="scores-div">
           <div id="user-div">Hello... {currentUser.displayName}</div>
           Your last 10 scores...
           <ul>
-            {getUserScores &&
-              getUserScores.map((item) => (
-                //the date is unique so this can be the key
-
-                <li key={item.date}>
-                  {item.score} points -{" "}
-                  {new Date(item.date.seconds * 1000).toLocaleDateString(
-                    "en-UK"
-                  )}
-                </li>
+            {getUserData &&
+              getUserData.map((item) => (
+                <div id="high-scores-div">
+                  <li key={item.date}>
+                    {item.score} points -
+                    {new Date(item.date.seconds * 1000).toLocaleDateString(
+                      "en-UK"
+                    )}
+                  </li>
+                </div>
               ))}
           </ul>
         </div>

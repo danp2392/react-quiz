@@ -7,7 +7,7 @@ import { SaveScore } from "./SaveScore";
 import { RandomiseAnswers } from "../functions/randomizeFunction";
 import { Navbar } from "../Components/Navbar";
 
-const Quiz = () => {
+export const Quiz = () => {
   const [quizData, setQuizData] = useState([]);
   const [getQuestion, setQuestion] = useState([]);
   const [getCorrect, setCorrect] = useState("");
@@ -34,8 +34,7 @@ const Quiz = () => {
   useEffect(() => {
     const runData = () => {
       setQuestion(quizData.map((item) => item.question));
-      //we randomise the answers after seeting them
-      //and then wrap the array of answers inside it
+
       setAnswers(quizData.map((item) => RandomiseAnswers(item.answers)));
 
       setCorrect(quizData.map((item) => item.answer));
@@ -73,5 +72,3 @@ const Quiz = () => {
     <SaveScore score={getScore} name={currentUser.displayName} />
   );
 };
-
-export default Quiz;

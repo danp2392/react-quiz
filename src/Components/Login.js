@@ -1,11 +1,11 @@
 import React from "react";
 import { useAuth } from "../auth/auth";
 import { history } from "../routes/AppRouter";
-import { withRouter } from "react-router-dom";
 import "../App.css";
-import "../styling/login.css";
+import "../styling/Login.css";
+import logo192 from "../images/logo192.png";
 
-const Login = () => {
+export const Login = () => {
   const { startLogin } = useAuth();
 
   const login = async () => {
@@ -14,15 +14,17 @@ const Login = () => {
 
       history.push("/welcome");
     } catch (e) {
-      console.log("erroe" + e);
+      throw new Error(e);
     }
   };
 
   return (
     <>
-      <div class="container">
+      <div className="container">
+        <img src={logo192} alt="react-logo" className="react-logo" />
+
         <div id="login-div">
-          DANIELS REACT QUIZ APP
+          React Quiz App
           <h2 id="sub-heading">
             Take 10 random questions and find out how smart you really think you
             are
@@ -35,5 +37,3 @@ const Login = () => {
     </>
   );
 };
-
-export default withRouter(Login);

@@ -1,24 +1,21 @@
-
-
-.score-div{
-    
-    font-size: 1.75rem;
-    font-weight: 900;
-    text-align: center;
+#score-div {
+  font-size: 1.75rem;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-
 #save-button {
-    font-size: 2rem;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    font-weight: 800;
-    border-radius: 30px;
-    color: #fffffe;
-    background-color:#8B9FA7;
-    padding: 10px 40px;
-  }
-  
-  #save-button:hover{
-    background-color:  #ABCFDE;;
-  }
+  font-size: 2rem;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-weight: 800;
+  border-radius: 0.16rem;
+  color: #fffffe;
+  background-color: #8b9fa7;
+  padding: 10px 40px;
+}
+
+#save-button:hover {
+  background-color: #abcfde;
+}

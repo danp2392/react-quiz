@@ -9,8 +9,10 @@
 /src/testing
 /.env
 /package-lock.json
-
+/.babelrc
 /coverage
+/public/scripts/
+/public/bundle.js
 
 /build
 

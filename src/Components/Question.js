@@ -1,22 +1,22 @@
 import React from "react";
 import { decodeHTML } from "../functions/decodeHTML";
 import "../App.css";
-import "../styling/quiz.css";
+import "../styling/Question.css";
 
-export const Question = ({ id, question }) => {
+export const Question = ({ question }) => {
   return (
-    <div class="container">
+    <div className="container">
       <div id="question-div">{question}</div>
     </div>
   );
 };
 
-export const Answer = ({ answer, id, checkAnswer }) => {
+const Answer = ({ answer, id, checkAnswer }) => {
   return (
-    <div class="container">
+    <div className="container">
       <div id="answer-div">
-        <div onClick={checkAnswer} id={id} class="answer">
-          <li>{decodeHTML(answer)}</li>
+        <div onClick={checkAnswer} id={id} className="answer">
+          <li key={answer}>{decodeHTML(answer)}</li>
         </div>
       </div>
     </div>
@@ -24,11 +24,6 @@ export const Answer = ({ answer, id, checkAnswer }) => {
 };
 
 export const ListAnswer = ({ answers, checkAnswer }) => {
-  //to stop array from been empty, do some error checking
-  //must have answers and must have a length and then map it
-  //then it won't error out on click
- 
-
   const answersList =
     answers &&
     answers.length &&
@@ -38,6 +33,5 @@ export const ListAnswer = ({ answers, checkAnswer }) => {
       </div>
     ));
 
-  return <ul id="list-div">{answersList}</ul>
-
+  return <ul id="list-div">{answersList}</ul>;
 };
