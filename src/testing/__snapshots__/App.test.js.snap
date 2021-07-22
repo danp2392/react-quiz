@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it should render a navbar page 1`] = `
+ReactShallowRenderer {
+  "_context": null,
+  "_element": null,
+  "_forcedUpdate": false,
+  "_instance": null,
+  "_newState": null,
+  "_rendered": null,
+  "_rendering": false,
+  "_updater": Updater {
+    "_callbacks": Array [],
+    "_renderer": [Circular],
+  },
+}
+`;
+
+exports[`welcome page render welcome page 1`] = `
+ShallowWrapper {
+  "length": 1,
+}
+`;
+
+exports[`welcome page should render the welcome page 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="background-img"
+  />
+  <div
+    className="background"
+  >
+    <[object Object]
+      className="menu"
+      to="/quiz"
+    >
+      Start Quiz
+    </[object Object]>
+  </div>
+  <div
+    className="background"
+  >
+    <[object Object]
+      className="menu"
+      to="/highscores"
+    >
+      High Scores
+    </[object Object]>
+  </div>
+</div>
+`;

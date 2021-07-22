@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../auth/firebase";
+import { db, scores } from "../auth/firebase";
 import { useAuth } from "../auth/auth";
 import "../App.css";
 import "../styling/HighScores.css";
 import { Navbar } from "./Navbar";
+import firebase from "firebase";
+import "firebase/auth";
+import "firebase/database";
 
 export const HighScores = () => {
   const [getUserData, setUserData] = useState([]);
@@ -11,7 +14,7 @@ export const HighScores = () => {
   //need tp get scoes from database
   const { currentUser } = useAuth();
 
-  function getData() {
+  /**function getData() {
     try {
       db.collection("scores")
         .where("name", "==", currentUser.displayName)
@@ -30,10 +33,22 @@ export const HighScores = () => {
     } catch (e) {
       console.log(e);
     }
+  } */
+
+  const scoreDb = firebase.database();
+  function dbListener() {
+    db.collection("scores").onSnapshot((snap) => {
+      const userScoreData = [];
+      snap.docs.forEach((doc) => {
+        const data = doc.data();
+        userScoreData.push(data);
+      });
+      console.log(userScoreData);
+    });
   }
 
   useEffect(() => {
-    getData();
+    dbListener();
   });
 
   return (
@@ -46,14 +61,16 @@ export const HighScores = () => {
           <ul>
             {getUserData &&
               getUserData.map((item) => (
-                <div id="high-scores-div">
-                  <li key={item.date}>
-                    {item.score} points -
-                    {new Date(item.date.seconds * 1000).toLocaleDateString(
-                      "en-UK"
-                    )}
-                  </li>
-                </div>
+                <li key={item.date}>
+                  <div className="score">{item.score} points</div>
+                  <div id="seperator">-</div>
+                  <div className="score">
+                    {
+                      //new Date(item.date.seconds * 1000).toLocaleDateString(
+                      //"en-UK")
+                    }
+                  </div>
+                </li>
               ))}
           </ul>
         </div>

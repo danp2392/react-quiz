@@ -14,10 +14,22 @@
   font-size: 1.5rem;
 }
 
-#high-scores-div {
-  background-color: lightgrey;
-  margin: 10px;
+#test-score-div {
+  color: red;
+}
+.score {
+  display: inline-flex;
+  font-size: 1.1rem;
+  margin: 5px;
+  border: groove;
   padding: 5px;
-  border: 1px solid;
-  border-radius: 0.2rem;
+  background-color: #abcfde;
+  border-radius: 2rem;
+}
+
+#seperator {
+  display: inline-flex;
+  font-size: 2rem;
+  border-radius: 4rem;
+  color: black;
 }

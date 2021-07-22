@@ -1,39 +1,50 @@
 {
   "name": "my-quiz-app",
-  "jest": {
-    "verbose": true
-  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@auth0/auth0-react": "^1.5.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
+    "@firebase/firestore": "2.3.8",
+    "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^12.1.10",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "8.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "css-loader": "0.28.4",
-    "firebase": "^8.6.5",
+    "css-loader": "0.28.4y",
+    "enzyme": "3.0.0",
+    "enzyme-adapter-react-16": "1.0.0",
+    "enzyme-to-json": "3.0.1",
+    "firebase": "8.7.1",
     "firebase-admin": "^9.9.0",
-    "firestore": "^1.1.6",
     "history": "^4.10.1",
     "jest": "26.6.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "raf": "3.3.2",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-test-renderer": "16.4.0",
     "web-vitals": "^1.0.1",
     "webpack": "4.44.2"
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
+    "coverageReporters": [
+      "text"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "webpack --watch",
-    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "test": "jest",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

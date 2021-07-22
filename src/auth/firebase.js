@@ -10,5 +10,6 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
+const scores = () => this.db.ref("scores");
 
-export { firebase, googleProvider, db };
+export { firebase, googleProvider, db, scores };

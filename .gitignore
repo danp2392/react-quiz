@@ -6,7 +6,7 @@
 .pnp.js
 /src/misc
 /src/config.js
-/src/testing
+
 /.env
 /package-lock.json
 /.babelrc

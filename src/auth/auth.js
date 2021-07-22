@@ -1,5 +1,5 @@
 import { firebase, googleProvider } from "./firebase";
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
 
@@ -8,7 +8,6 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  //first set the user
   const [currentUser, setUser] = useState(null);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
 
