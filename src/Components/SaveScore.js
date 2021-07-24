@@ -17,7 +17,7 @@ export const SaveScore = ({ score, name }) => {
       });
       history.push("/welcome");
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   };
   return (

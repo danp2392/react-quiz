@@ -23,7 +23,7 @@ export const Quiz = () => {
         setQuizData(data);
         setIsLoading(false);
       } catch (e) {
-        console.log(e);
+        throw new Error(e);
       }
     };
     loadingData();
@@ -47,7 +47,6 @@ export const Quiz = () => {
     setQuestionId(currentQuestionId + 1);
     if (getValue === getCorrect[currentQuestionId]) {
       setScore(getScore + 1);
-      console.log("correct");
     }
   }
 
