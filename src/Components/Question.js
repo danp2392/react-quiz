@@ -28,7 +28,7 @@ export const ListAnswer = ({ answers, checkAnswer }) => {
     answers &&
     answers.length &&
     answers.map((answer) => (
-      <div>
+      <div key={answer}>
         <Answer key={answer} answer={answer} checkAnswer={checkAnswer} />
       </div>
     ));

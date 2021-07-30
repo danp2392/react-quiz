@@ -11,22 +11,21 @@ import "firebase/database";
 export const HighScores = () => {
   const [getUserData, setUserData] = useState([]);
 
-  const { currentUser } = useAuth();
+  const { currentUser, getUid } = useAuth();
 
   function getUserScoreData() {
     try {
-      db.collection("scores")
-        .where("name", "==", currentUser.displayName)
-        .orderBy("date", "desc")
-        .limit(10)
-        .onSnapshot((snap) => {
-          const userScoreData = [];
-          snap.docs.forEach((doc) => {
+      db.collection("users")
+        .doc(currentUser.uid)
+        .collection("scores")
+        .onSnapshot((snapshot) => {
+          const userData = [];
+          snapshot.docs.forEach((doc) => {
             const data = doc.data();
-            userScoreData.push(data);
+            userData.push(data);
           });
-
-          setUserData(userScoreData);
+          setUserData(userData);
+          console.log(userData);
         });
     } catch (error) {
       throw new Error(error);
@@ -35,7 +34,7 @@ export const HighScores = () => {
 
   useEffect(() => {
     getUserScoreData();
-  });
+  }, []);
 
   return (
     <>

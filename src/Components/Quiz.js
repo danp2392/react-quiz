@@ -16,6 +16,8 @@ export const Quiz = () => {
   const [currentQuestionId, setQuestionId] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { currentUser } = useAuth();
+
   useEffect(() => {
     const loadingData = async () => {
       const data = await LoadData();
@@ -28,8 +30,6 @@ export const Quiz = () => {
     };
     loadingData();
   }, []);
-
-  const { currentUser } = useAuth();
 
   useEffect(() => {
     const runData = () => {
