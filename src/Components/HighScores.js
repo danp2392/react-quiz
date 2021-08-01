@@ -4,9 +4,13 @@ import { useAuth } from "../auth/auth";
 import "../App.css";
 import "../styling/HighScores.css";
 import { Navbar } from "./Navbar";
-
 import "firebase/auth";
 import "firebase/database";
+import { Container } from "@material-ui/core";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Typography from "@material-ui/core/Typography";
 
 export const HighScores = () => {
   const [getUserData, setUserData] = useState([]);
@@ -18,6 +22,8 @@ export const HighScores = () => {
       db.collection("users")
         .doc(currentUser.uid)
         .collection("scores")
+        .orderBy("date", "desc")
+        .limit(10)
         .onSnapshot((snapshot) => {
           const userData = [];
           snapshot.docs.forEach((doc) => {
@@ -39,26 +45,28 @@ export const HighScores = () => {
   return (
     <>
       <Navbar />
-      <div className="container">
+      <Container>
         <div id="scores-div">
-          <div id="user-div">Hello... {currentUser.displayName}</div>
-          Your last 10 scores...
-          <ul>
+          <div id="user-div">
+            <Typography>Hello... {currentUser.displayName}</Typography>
+          </div>
+          <Typography>Your last 10 scores...</Typography>
+          <List>
             {getUserData &&
               getUserData.map((item) => (
-                <li key={item.date}>
-                  <div className="score">{item.score} points</div>
-                  <div id="seperator">-</div>
-                  <div className="score">
+                <ListItem key={item.date}>
+                  <ListItemText>{item.score} points -</ListItemText>
+                  <ListItemText>
+                    {" "}
                     {new Date(item.date.seconds * 1000).toLocaleDateString(
                       "en-UK"
                     )}
-                  </div>
-                </li>
+                  </ListItemText>
+                </ListItem>
               ))}
-          </ul>
+          </List>
         </div>
-      </div>
+      </Container>
     </>
   );
 };

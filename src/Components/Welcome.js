@@ -2,21 +2,44 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
 import "../styling/Welcome.css";
+import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+
+import Typography from "@material-ui/core/Typography";
 
 export const Welcome = () => {
   return (
-    <div className="container">
-      <div className="background-img"></div>
-      <div className="background">
-        <NavLink to="/quiz" className="menu">
-          Start Quiz
-        </NavLink>
-      </div>
-      <div className="background">
-        <NavLink to="/highscores" className="menu">
-          High Scores
-        </NavLink>
-      </div>
-    </div>
+    <Container>
+      <Card>
+        <CardActions>
+          <Button
+            color="secondary"
+            variant="contained"
+            size="large"
+            component={NavLink}
+            to="/quiz"
+            className="menu"
+          >
+            Start Quiz
+          </Button>
+        </CardActions>
+
+        <CardActions>
+          <Button
+            color="secondary"
+            variant="contained"
+            size="large"
+            component={NavLink}
+            to="/highscores"
+            className="menu"
+          >
+            High Scores
+          </Button>
+        </CardActions>
+      </Card>
+    </Container>
   );
 };

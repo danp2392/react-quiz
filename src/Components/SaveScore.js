@@ -5,6 +5,10 @@ import { history } from "../routes/AppRouter";
 import "../App.css";
 import "../styling/SaveScore.css";
 import { useAuth } from "../auth/auth";
+import Button from "@material-ui/core/Button";
+import { Typography } from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+
 export const SaveScore = ({ score, name }) => {
   const timestamp = firebase.firestore.FieldValue.serverTimestamp();
 
@@ -27,10 +31,19 @@ export const SaveScore = ({ score, name }) => {
   return (
     <div className="container">
       <div id="score-div">
-        Score: {score}
-        <form onSubmit={Save}>
-          <button id="save-button">SAVE SCORE</button>
-        </form>
+        <Typography variant="h3" color="textSecondary">
+          Score : {score}
+        </Typography>
+
+        <Button
+          id="save-button"
+          type="submit"
+          color="primary"
+          variant="contained"
+          onClick={Save}
+        >
+          SAVE SCORE
+        </Button>
       </div>
     </div>
   );

@@ -8,6 +8,8 @@ import { Login } from "../Components/Login";
 import { HighScores } from "../Components/HighScores";
 
 import { PrivateRoute } from "../routes/PrivateRoute";
+import { createTheme, ThemeProvider } from "@material-ui/core";
+import { purple } from "@material-ui/core/colors";
 
 export const history = createBrowserHistory();
 
