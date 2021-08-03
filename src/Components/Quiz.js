@@ -55,7 +55,6 @@ export const Quiz = () => {
   ) : currentQuestionId < quizData.length ? (
     <>
       <Navbar />
-
       <Question
         id={currentQuestionId}
         question={decodeHTML(getQuestion[currentQuestionId])}

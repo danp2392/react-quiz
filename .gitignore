@@ -6,6 +6,9 @@
 .pnp.js
 /src/misc
 /src/config.js
+/src/App.css
+/src/styling/
+
 
 /.env
 /package-lock.json

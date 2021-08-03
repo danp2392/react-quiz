@@ -9,20 +9,43 @@ import { HighScores } from "../Components/HighScores";
 
 import { PrivateRoute } from "../routes/PrivateRoute";
 import { createTheme, ThemeProvider } from "@material-ui/core";
-import { purple } from "@material-ui/core/colors";
+
+import { Layout } from "../Components/Layout";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#81d3f9",
+      light: "#b5ffff",
+      dark: "#4ba2c6",
+    },
+    secondary: {
+      main: "#E0E0E0",
+    },
+  },
+  typography: {
+    fontWeightLight: 600,
+  },
+});
+
+export const themeatic = createTheme();
 
 export const history = createBrowserHistory();
 
 export const Routes = () => {
   return (
-    <Router history={history}>
-      <Switch>
-        <Route path="/" exact component={Login} />
+    <ThemeProvider theme={theme}>
+      <Router history={history}>
+        <Layout>
+          <Switch>
+            <Route path="/" exact component={Login} />
 
-        <PrivateRoute path="/welcome" exact component={Welcome} />
-        <PrivateRoute path="/quiz" component={Quiz} />
-        <PrivateRoute path="/highscores" component={HighScores} />
-      </Switch>
-    </Router>
+            <PrivateRoute path="/welcome" exact component={Welcome} />
+            <PrivateRoute path="/quiz" component={Quiz} />
+            <PrivateRoute path="/highscores" component={HighScores} />
+          </Switch>
+        </Layout>
+      </Router>
+    </ThemeProvider>
   );
 };

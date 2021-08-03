@@ -1,45 +1,52 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../App.css";
-import "../styling/Welcome.css";
-import Container from "@material-ui/core/Container";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
 
-import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+
+const useStyles = makeStyles((theme) => ({
+  menu: {
+    paddingTop: "20px",
+    paddingBottom: "20px",
+    backgroundColor: theme.palette.secondary,
+  },
+  option: {
+    lineHeight: "6rem",
+    color: "white",
+    backgroundColor: theme.palette.primary.dark,
+    fontSize: "2rem",
+    "&:hover": {
+      backgroundColor: "#8b9fa7",
+    },
+  },
+}));
 
 export const Welcome = () => {
+  const classes = useStyles();
   return (
-    <Container>
-      <Card>
-        <CardActions>
-          <Button
-            color="secondary"
-            variant="contained"
-            size="large"
-            component={NavLink}
-            to="/quiz"
-            className="menu"
-          >
-            Start Quiz
-          </Button>
-        </CardActions>
+    <Box className={classes.menu}>
+      <Button
+        variant="contained"
+        size="large"
+        component={NavLink}
+        to="/quiz"
+        className={classes.option}
+      >
+        Start Quiz
+      </Button>
 
-        <CardActions>
-          <Button
-            color="secondary"
-            variant="contained"
-            size="large"
-            component={NavLink}
-            to="/highscores"
-            className="menu"
-          >
-            High Scores
-          </Button>
-        </CardActions>
-      </Card>
-    </Container>
+      <Box className={classes.menu}>
+        <Button
+          variant="contained"
+          size="large"
+          component={NavLink}
+          to="/highscores"
+          className={classes.option}
+        >
+          High Scores
+        </Button>
+      </Box>
+    </Box>
   );
 };

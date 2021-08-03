@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../auth/firebase";
 import { useAuth } from "../auth/auth";
-import "../App.css";
-import "../styling/HighScores.css";
+
 import { Navbar } from "./Navbar";
 import "firebase/auth";
 import "firebase/database";
-import { Container } from "@material-ui/core";
+import { useStyles } from "../styles/HighScoresStyle";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -15,7 +14,7 @@ import Typography from "@material-ui/core/Typography";
 export const HighScores = () => {
   const [getUserData, setUserData] = useState([]);
 
-  const { currentUser, getUid } = useAuth();
+  const { currentUser } = useAuth();
 
   function getUserScoreData() {
     try {
@@ -42,31 +41,37 @@ export const HighScores = () => {
     getUserScoreData();
   }, []);
 
+  const classes = useStyles();
+
   return (
     <>
       <Navbar />
-      <Container>
-        <div id="scores-div">
-          <div id="user-div">
-            <Typography>Hello... {currentUser.displayName}</Typography>
-          </div>
-          <Typography>Your last 10 scores...</Typography>
-          <List>
-            {getUserData &&
-              getUserData.map((item) => (
-                <ListItem key={item.date}>
-                  <ListItemText>{item.score} points -</ListItemText>
-                  <ListItemText>
-                    {" "}
-                    {new Date(item.date.seconds * 1000).toLocaleDateString(
-                      "en-UK"
-                    )}
-                  </ListItemText>
-                </ListItem>
-              ))}
-          </List>
-        </div>
-      </Container>
+
+      <Typography variant="h6" className={classes.text}>
+        Hello {currentUser.displayName}
+      </Typography>
+
+      <Typography className={classes.text}>See your last 10 results</Typography>
+      <List>
+        {getUserData &&
+          getUserData.map((item) => (
+            <ListItem className={classes.score} key={item.date}>
+              <ListItemText className={classes.scores}>
+                <Typography variant="body2" className={classes.score}>
+                  {item.score} points{" "}
+                </Typography>
+              </ListItemText>
+              <ListItemText className={classes.scores}>
+                <Typography variant="body2" className={classes.score}>
+                  {" "}
+                  {new Date(item.date.seconds * 1000).toLocaleDateString(
+                    "en-UK"
+                  )}{" "}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+          ))}
+      </List>
     </>
   );
 };
