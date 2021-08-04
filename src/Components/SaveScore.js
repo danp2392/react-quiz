@@ -2,12 +2,10 @@ import { db } from "../auth/firebase";
 import React from "react";
 import firebase from "firebase";
 import { history } from "../routes/AppRouter";
-
 import { useAuth } from "../auth/auth";
 import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
-
-import { makeStyles } from "@material-ui/core";
+import { useStyles } from "../styles/SaveScoreStyle";
 
 export const SaveScore = ({ score, name }) => {
   const timestamp = firebase.firestore.FieldValue.serverTimestamp();
@@ -28,23 +26,6 @@ export const SaveScore = ({ score, name }) => {
       throw new Error(error);
     }
   };
-
-  const useStyles = makeStyles((theme) => ({
-    saveButton: {
-      lineHeight: "6rem",
-      fontSize: "2rem",
-      color: "white",
-      backgroundColor: theme.palette.primary.dark,
-      marginBottom: "20px",
-      "&:hover": {
-        backgroundColor: "#8b9fa7",
-      },
-    },
-    scoreText: {
-      paddingTop: "20px",
-      paddingBottom: "20px",
-    },
-  }));
 
   const classes = useStyles();
 

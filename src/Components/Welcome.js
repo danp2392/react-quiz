@@ -1,26 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-
-const useStyles = makeStyles((theme) => ({
-  menu: {
-    paddingTop: "20px",
-    paddingBottom: "20px",
-    backgroundColor: theme.palette.secondary,
-  },
-  option: {
-    lineHeight: "6rem",
-    color: "white",
-    backgroundColor: theme.palette.primary.dark,
-    fontSize: "2rem",
-    "&:hover": {
-      backgroundColor: "#8b9fa7",
-    },
-  },
-}));
+import { useStyles } from "../styles/WelcomeStyle";
 
 export const Welcome = () => {
   const classes = useStyles();

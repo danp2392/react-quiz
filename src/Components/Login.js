@@ -1,13 +1,12 @@
 import React from "react";
 import { useAuth } from "../auth/auth";
 import { history } from "../routes/AppRouter";
-
 import logo192 from "../images/logo192.png";
-
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core";
+import { useStyles } from "../styles/LoginStyle";
+
 export const Login = () => {
   const { startLogin } = useAuth();
 
@@ -20,24 +19,6 @@ export const Login = () => {
       throw new Error(e);
     }
   };
-
-  const useStyles = makeStyles((theme) => ({
-    loginDiv: {
-      paddingTop: "20px",
-      paddingBottom: "20px",
-    },
-
-    login: {
-      lineHeight: "5rem",
-      margin: "20px",
-      color: "white",
-      backgroundColor: theme.palette.primary.dark,
-      fontSize: "2.5rem",
-      "&:hover": {
-        backgroundColor: "#8b9fa7",
-      },
-    },
-  }));
 
   const classes = useStyles();
 

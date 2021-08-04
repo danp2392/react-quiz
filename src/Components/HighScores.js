@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../auth/firebase";
 import { useAuth } from "../auth/auth";
-
 import { Navbar } from "./Navbar";
 import "firebase/auth";
 import "firebase/database";
