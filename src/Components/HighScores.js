@@ -29,7 +29,6 @@ export const HighScores = () => {
             userData.push(data);
           });
           setUserData(userData);
-          console.log(userData);
         });
     } catch (error) {
       throw new Error(error);
@@ -38,7 +37,7 @@ export const HighScores = () => {
 
   useEffect(() => {
     getUserScoreData();
-  }, []);
+  });
 
   const classes = useStyles();
 

@@ -19,10 +19,8 @@ export const SaveScore = ({ score, name }) => {
         date: timestamp,
       });
 
-      console.log("saved");
       history.push("/welcome");
     } catch (error) {
-      console.log("not saved");
       throw new Error(error);
     }
   };

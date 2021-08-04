@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   container: {
     position: "relative",
     paddingBottom: "20px",
-
+    height: "100%",
     width: "800px",
     paddingTop: "20px",
     maxWidth: "80%",
