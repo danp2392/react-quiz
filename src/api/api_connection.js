@@ -1,5 +1,5 @@
 export async function LoadData() {
-  const url = "https://opentdb.com/api.php?amount=10";
+  const url = process.env.REACT_APP_OPEN_API;
 
   const response = await fetch(url);
 

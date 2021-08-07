@@ -5,11 +5,12 @@ export const useStyles = makeStyles((theme) => ({
     padding: "20px",
     backgroundColor: theme.palette.primary.main,
     border: "5px inset",
+    cursor: "default",
   },
   answerDiv: {
     textAlign: "center",
     margin: 0,
-
+    cursor: "default",
     backgroundColor: theme.palette.secondary,
 
     "&:hover": {
