@@ -7,24 +7,11 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "../styles/LoginStyle";
 
-export const Login = () => {
-  const { startLogin } = useAuth();
-
-  const login = async () => {
-    try {
-      await startLogin();
-
-      history.push("/welcome");
-    } catch (e) {
-      throw new Error(e);
-    }
-  };
-
+export const LoginTest2 = () => {
   const classes = useStyles();
-
   return (
     <Box className={classes.loginDiv}>
-      <img src={logo192} alt="react-logo" className={classes.reactLogo} />
+      <img src={logo192} alt="react-logo" />
 
       <Box className={classes.welcomeText}>
         <Typography variant="h3">React Quiz App</Typography>
@@ -32,13 +19,7 @@ export const Login = () => {
           Take 10 random questions and find out how smart you are
         </Typography>
       </Box>
-      <Button
-        data-testid="login-button"
-        className={classes.login}
-        onClick={login}
-      >
-        LOGIN
-      </Button>
+      <Button data-testid="login-button">LOGIN</Button>
     </Box>
   );
 };
